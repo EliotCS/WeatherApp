@@ -1,12 +1,45 @@
-# WeatherApp
-A responsive, glassmorphic weather application built with Vanilla JS. Features strict city/state geocoding validation, dynamic °F/°C unit toggling, and preference persistence via localStorage.
+# Weather-App
+A custom web-based weather application built with HTML, CSS, JavaScript, Leaflet.js, and Cloudflare Pages.
 
-## 📌 Roadmap (Upcoming Features)
+# JavaScript Weather App
+A functional, responsive web application that provides real-time weather forecasts, interactive map coordinate lookup, dynamic unit conversion, and persistent local storage.
 
-- [ ] **Interactive USA Click-to-Select Map:** A live 2D map restricted to the US that allows users to click anywhere on the map to automatically load weather for that location without typing.
-- [ ] **Hourly Weather Updates:** Granular 1-hour interval forecasts tracking temperature and condition trends throughout the day.
-- [ ] **Multi-Day Forecast Integration:** Multi-day weather fetch providing extended daily temperature and weather condition outlooks.
-- [ ] **Deployment:** Live server hosting for real-time testing, performance checks, and live previews.
+## About
+I built this project to test and apply my growing JavaScript and web development skills. Rather than creating a basic static weather display, I challenged myself to solve real user-experience problems: integrating interactive map-click geocoding with Leaflet.js, fetching live data using the OpenWeather API, hosting the site on Cloudflare, and styling a modern glassmorphism UI.
 
-## Little preview before adding the upcoming features
-<img width="1919" height="934" alt="Screenshot 2026-09-15 004515" src="https://github.com/user-attachments/assets/346d51fa-6e77-471e-b964-878d25247d17" />
+## What I Learned
+While building this project, I practiced:
+* Working with `localStorage` to persist user settings, last searched locations, and temperature preferences across browser sessions
+* Fetching, handling, and parsing asynchronous live data using the OpenWeather API
+* Deploying and hosting a web application seamlessly using Cloudflare Pages
+* Integrating Leaflet.js map event listeners (`e.latlng`) to fetch weather data by geographic coordinates whenever a user clicks the map
+* Array manipulation and data slicing (`.slice(i * 8, (i + 1) * 8)`) using `Math.min()` and `Math.max()` to compute daily high and low temperatures from 3-hour forecast blocks
+* Converting degree measurements into cardinal compass directions (`N`, `NE`, `E`, etc.) using modular arithmetic (`Math.round(deg / 45) % 8`)
+* Designing a modern glassmorphism interface using CSS `backdrop-filter: blur(12px)`, custom gradients, and CSS animated toggle switches
+
+## Features
+* **Interactive Map Selection** — click anywhere on the interactive Leaflet map to instantly fetch weather data for those exact coordinates
+* **City & State Search** — input any US city and state combination to geocode and fetch a 5-day weather forecast
+* **Dynamic 5-Day Forecast** — displays calculated daily high/low temperatures, feels-like metrics, humidity, wind direction, and weather condition icons
+* **Persistent Unit Toggle** — switch between Fahrenheit and Celsius instantly with automatic unit conversions recalculated on the fly
+* **Local Storage Persistence** — saves your last searched location and temperature preference across page reloads
+* **Glassmorphism UI** — features frosted-glass card elements and fully responsive layout adjustments for desktop and mobile devices
+
+## Technologies Used
+* HTML5
+* CSS3 
+* JavaScript 
+* Leaflet.js 
+* OpenWeather API
+* Cloudflare Pages
+
+## Purpose
+This project is part of my journey mastering vanilla JavaScript and web development. Building a weather application allowed me to sharpen my problem-solving skills, work with third-party mapping APIs, handle complex asynchronous responses, and build a clean UI from scratch.
+
+I plan to keep building and refining projects to sharpen my front-end development skills.
+
+## Preview
+<img width="1919" height="1079" alt="Weather App Screenshot" src="https://github.com/user-attachments/assets/199424ca-f841-4945-946e-0bed7a3a2b76" />
+
+## Live Demo
+[View the Weather App](https://eliotweatherapp.pages.dev/)
