@@ -1,0 +1,316 @@
+body{
+    background-image: radial-gradient(circle, #5c0067, #00d4ff);
+
+}
+
+
+.weatherapp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Toggle Button for Fahrenheit/Celsius*/
+.ForC{
+    width: 100px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    box-sizing: border-box;
+    background: linear-gradient(180deg,rgb(252, 125, 146),rgb(243, 195, 132));
+    border-radius: 50px;
+    box-shadow: inset 0px 5px 10px rgb(48, 51, 49), inset 0px -5px 10px rgb(117, 101, 101);
+    cursor: pointer;
+    transition: 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    font-weight: bold;
+    font-size:18px;
+    cursor: pointer;
+    user-select: none;
+    border: 2px solid rgba(255, 255, 255, 0.096);
+
+}
+
+.text-f, .text-c {
+    position: relative;
+    z-index: 2; 
+    color: #333;
+    transition: 0.3s ease;
+}
+
+.ForC:after{
+    content: "";
+    width:38px;
+    height:38px;
+    position: absolute;
+    top:3px;
+    left:6px;
+    background: radial-gradient(circle at 30% 30%, rgba(253, 135, 0, 0.9), rgba(255, 70, 70, 0.8));
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), inset -4px -4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    z-index: 1;
+}
+
+#F-or-C-Switch{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+#F-or-C-Switch:checked + .ForC{
+    background: linear-gradient(180deg,rgb(185, 188, 240), rgb(178, 247, 247));
+}
+
+#F-or-C-Switch:checked + .ForC::after{
+    left: 94px;
+    transform: translate(-100%) scale(1.08) rotate(15deg);
+    border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(179, 240, 252, 0.9), rgba(48, 219, 162, 0.8));
+
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Weather Card Section*/
+
+#Cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto;
+}
+.weathercard {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.322);
+    border-radius: 24px;
+    padding: 23px;
+    width: 150px;
+    margin: 20px auto;
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.377);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Roboto Condensed', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+
+}
+
+
+.currentLocation{
+    display: inline-flex;
+    justify-items: center;
+    align-content: center;
+    gap: 30px;
+    font-size: 50px;
+    color: rgb(77, 230, 179);
+    font-weight: bold;
+    text-shadow: 0px 0px 2px white;
+}
+
+
+
+
+#CurrentTime, .card-day {
+    background: rgba(251, 255, 0, 0.671);
+    color: #000000;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+
+.description {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 500;
+    text-align: center; 
+    max-width: 100%;
+}
+
+.Weathericons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  }
+
+.weather-icon {
+    width: 75px;
+    height: 75px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    pointer-events: none;
+}
+
+
+.temp {
+    font-size: 27px;
+    font-weight: 800;
+    white-space: nowrap;
+    min-width: 80px; 
+}
+
+.humidity,.wind,.feel-like, .maxtemp, .mintemp{
+    width: 100%;
+    background: rgba(0, 0, 0, 0.37);
+    padding: 8px 5px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Input Form Container */
+.input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+/* Text Input & Dropdown Styling */
+#city, #state {
+    height: 42px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 12px;
+    padding: 0 12px;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#city {
+    flex: 2;
+    min-width: 0;
+}
+
+#city::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+#state {
+    flex: 1.2;
+    min-width: 0;
+    cursor: pointer;
+}
+
+#state option {
+    background: #3b0042;
+    color: #ffffff;
+}
+
+#city:focus, #state:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Submit Button */
+#getinputs {
+    height: 42px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    padding: 0 16px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#getinputs:hover {
+    background: #ffffff;
+    color: #5c0067;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+#map {
+    height: 300px;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 16px;
+    margin: 20px auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+        .currentLocation {
+        font-size: 32px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .input {
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    #city, #state, #getinputs {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    #Cards {
+        gap: 12px;
+        padding: 0 10px;
+    }
+
+    .weathercard {
+        width: calc(50% - 20px); 
+        min-width: 140px;
+        padding: 15px 10px;
+        margin: 0;
+    }
+
+ 
+    #map {
+        height: 250px;
+        width: 95%;
+    }
+}
+
+@media (max-width: 400px) {
+    .weathercard {
+        width: 100%; 
+    }
+
+    .currentLocation {
+        font-size: 26px;
+    }
+}
