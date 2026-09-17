@@ -177,7 +177,7 @@ body{
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* Input Form Container */
+/* Input Form */
 .input {
     display: flex;
     flex-wrap: wrap;
@@ -190,7 +190,6 @@ body{
     padding: 0 10px;
 }
 
-/* Text Input & Dropdown Styling */
 #city, #state {
     height: 42px;
     box-sizing: border-box;
