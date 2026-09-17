@@ -39,7 +39,7 @@ This project is part of my journey mastering vanilla JavaScript and web developm
 I plan to keep building and refining projects to sharpen my front-end development skills.
 
 ## Preview
-<img width="1919" height="1079" alt="Weather App Screenshot" src="https://github.com/user-attachments/assets/199424ca-f841-4945-946e-0bed7a3a2b76" />
+![Weather App Screenshot](https://github.com/user-attachments/assets/d5d132fd-4634-4557-8868-05940ed7d3a0)
 
 ## Live Demo
 [View the Weather App](https://eliotweatherapp.pages.dev/)
